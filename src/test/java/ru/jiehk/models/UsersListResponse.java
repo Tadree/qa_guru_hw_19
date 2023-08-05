@@ -1,13 +1,17 @@
 package ru.jiehk.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 @Data
 public class UsersListResponse {
-    private int page, per_page, total, total_pages;
+    private int page, total;
+    @JsonProperty("per_page")
+    private int perPage;
+    @JsonProperty("total_pages")
+    private int totalPages;
 
     private ArrayList<UsersListData> data = new ArrayList<>();
     private UsersListSupport support = new UsersListSupport();
@@ -15,7 +19,12 @@ public class UsersListResponse {
 @Data
 class UsersListData {
     private int id;
-    private String email, first_name, last_name, avatar;
+    private String email, avatar;
+    @JsonProperty("first_name")
+    private String firstName;
+    @JsonProperty("last_name")
+    private String lastName;
+
 }
 
 @Data

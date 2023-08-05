@@ -87,7 +87,7 @@ public class ReqresInTests extends TestBase {
                         .extract().as(UsersListResponse.class));
 
         step("Проверка ответа", () ->
-                assertEquals(response.getPer_page(), response.getData().size()));
+                assertEquals(response.getPerPage(), response.getData().size()));
     }
 
     @Test
